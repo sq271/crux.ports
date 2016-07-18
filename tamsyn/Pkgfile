@@ -11,7 +11,7 @@ source=(http://www.fial.com/~scott/$name/download/$name-$version.tar.gz)
 
 build() {
     cd $name-$version
-    install Tamsyn*.psf.gz $PKG/usr/share/kbd/consolefonts/
-    rm -rf $name-$version
-    fc-cache -v -f 
+    install Tamsyn*.psf.gz $PKG/
+    install $PKG/Tamsyn*.psf.gz /usr/share/kbd/consolefonts/
+    rm -rf $name-$version.tar.gz
 }
