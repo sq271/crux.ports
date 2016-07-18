@@ -1,0 +1,17 @@
+# Description: Tamsyn Console Font
+# URL: http://www.fial.com/~scott/tamsyn-font
+# Maintainer: Scott Fial
+# Packager: sq271 at gmx dot com
+# Depends on: framebuffer support, kbd
+
+name=tamsyn-font
+version=1.11
+release=1
+source=(http://www.fial.com/~scott/$name/download/$name-$version.tar.gz)
+
+build() {
+    cd $name-$version
+    install Tamsyn*.psf.gz $PKG/usr/share/kbd/consolefonts/
+    rm -rf $name-$version
+    fc-cache -v -f 
+}
