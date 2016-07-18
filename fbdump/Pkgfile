@@ -1,0 +1,21 @@
+# Description: framebuffer device capture
+# URL: http://www.rcdrummond.net/fbdump
+# Maintainer: Richard Drummond
+# Packager: sq271 at gmx dot com
+# Depends on:
+
+
+name=fbdump
+version=0.4.2
+release=1
+source=(http://www.rcdrummond.net/fbdump/fbdump-0.4.2.tar.gz)
+
+build() {
+    cd $name-$version
+    ./configure
+    make
+    mkdir -p $PKG/usr/bin
+    cp src/fbdump $PKG/usr/bin
+    install $PKG/usr/bin/fbdump /usr/bin
+
+}
