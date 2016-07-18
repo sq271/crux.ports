@@ -1,0 +1,18 @@
+# Description: Not Another Font Editor
+# URL: https://sourceforge.net/projects/nafe/
+# Maintainer: Corvus Corax
+# Packager: sq271 at gmx dot com
+# Depends on: kbd 
+
+name=nafe
+version=0.1
+release=1
+source=(http://downloads.sourceforge.net/project/nafe/nafe/nafe-0.1/nafe-0.1.tar.gz)
+
+build() {
+    cd $name-$version
+    make all
+    mkdir -p $PKG/usr/bin
+    cp txt2psf psf2txt $PKG/usr/bin
+    install txt2psf psf2txt /usr/bin
+}
